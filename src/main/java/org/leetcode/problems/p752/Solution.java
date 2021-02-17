@@ -1,42 +1,64 @@
 package org.leetcode.problems.p752;
 
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Solution {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
+    private String plusOne(String s, int j) {
+        char[] ch = s.toCharArray();
+        if (ch[j] == '9') {
+            ch[j] = '0';
         }
+        else {
+            ch[j] += 1;
+        }
+        return new String(ch);
     }
-    public int minDepth(TreeNode root) {
-        int depth = 0;
-        if(root == null) return depth;
-        Deque<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        depth = 1;
-        while(!queue.isEmpty()){
-            int sz = queue.size();
-            for(int i = 0; i < sz; i ++){
-                TreeNode cur = queue.poll();
-                if(cur.left == null && cur.right == null){
-                    return depth;
+    private String minusOne(String s, int j) {
+        char[] ch = s.toCharArray();
+        if (ch[j] == '0') {
+            ch[j] = '9';
+        }
+        else {
+            ch[j] -= 1;
+        }
+        return new String(ch);
+    }
+    public int openLock(String[] deadends, String target) {
+        Set<String> deads = new HashSet<>(deadends.length);
+        for(String s : deadends) deads.add(s);
+        Set<String> visited = new HashSet<>();
+        Queue<String> q = new LinkedList<>();
+        int steps = 0;
+        q.offer("0000");
+        visited.add("0000");
+
+        while(!q.isEmpty()){
+            int sz = q.size();
+            for (int i = 0; i < sz; i++) {
+                String cur = q.poll();
+
+                if (deads.contains(cur)) {
+                    continue;
                 }
-                if(cur.left != null){
-                    queue.offer(cur.left);
+                if (cur.equals(target)) {
+                    return steps;
                 }
-                if(cur.right != null) {
-                    queue.offer(cur.right);
+
+                for (int j = 0; j < 4; j++) {
+                    String up = plusOne(cur, j);
+                    if (!visited.contains(up)) {
+                        q.offer(up);
+                        visited.add(up);
+                    }
+                    String down = minusOne(cur, j);
+                    if (!visited.contains(down)) {
+                        q.offer(down);
+                        visited.add(down);
+                    }
                 }
             }
-            depth ++;
+            steps ++;
         }
-        return depth;
+        return -1;
     }
 }

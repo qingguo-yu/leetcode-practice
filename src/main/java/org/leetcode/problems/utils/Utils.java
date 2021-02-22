@@ -11,8 +11,8 @@ public class Utils {
         public int val;
         public TreeNode left;
         public TreeNode right;
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
+        public TreeNode(int val) { this.val = val; }
+        public TreeNode(int val, TreeNode left, TreeNode right) {
             this.val = val;
             this.left = left;
             this.right = right;
@@ -58,5 +58,30 @@ public class Utils {
             }
         }
         return  list.toArray(new Integer[0]);
+    }
+
+    public static ListNode buildListFromArray(Integer[] vals) {
+        if (vals == null || vals.length == 0) {
+            return null;
+        }
+        ListNode head = new ListNode(vals[0]);
+        ListNode cur = head;
+        for(int i = 1; i < vals.length; i++){
+            cur.next = new ListNode(vals[i]);
+            cur = cur.next;
+        }
+        return head;
+    }
+
+    public static Integer[] buildArrayFromList(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        List<Integer> vals = new ArrayList<>();
+        while (head != null) {
+            vals.add(head.val);
+            head = head.next;
+        }
+        return vals.toArray(new Integer[0]);
     }
 }

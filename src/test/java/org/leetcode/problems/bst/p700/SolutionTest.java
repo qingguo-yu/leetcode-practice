@@ -1,10 +1,8 @@
-package org.leetcode.problems.p700;
+package org.leetcode.problems.bst.p700;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.leetcode.problems.utils.Utils;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SolutionTest {
 

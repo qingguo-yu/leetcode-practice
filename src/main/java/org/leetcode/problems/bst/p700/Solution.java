@@ -1,4 +1,4 @@
-package org.leetcode.problems.p700;
+package org.leetcode.problems.bst.p700;
 
 import org.leetcode.problems.utils.Utils.TreeNode;
 

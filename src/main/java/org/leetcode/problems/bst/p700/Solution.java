@@ -1,6 +1,6 @@
 package org.leetcode.problems.bst.p700;
 
-import org.leetcode.problems.utils.Utils.TreeNode;
+import org.leetcode.problems.utils.TreeNode;
 
 public class Solution {
 

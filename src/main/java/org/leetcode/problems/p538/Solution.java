@@ -1,9 +1,6 @@
 package org.leetcode.problems.p538;
 
-import org.leetcode.problems.utils.Utils.TreeNode;
-
-import java.util.Deque;
-import java.util.LinkedList;
+import org.leetcode.problems.utils.TreeNode;
 
 public class Solution {
 

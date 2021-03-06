@@ -1,6 +1,6 @@
 package org.leetcode.problems.bt.p297;
 
-import org.leetcode.problems.utils.Utils.TreeNode;
+import org.leetcode.problems.utils.TreeNode;
 
 import java.util.Arrays;
 import java.util.LinkedList;

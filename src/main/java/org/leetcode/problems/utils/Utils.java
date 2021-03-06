@@ -7,19 +7,8 @@ import java.util.List;
 import java.util.Queue;
 
 public class Utils {
-    public static class TreeNode {
-        public int val;
-        public TreeNode left;
-        public TreeNode right;
-        public TreeNode(int val) { this.val = val; }
-        public TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
-    public static TreeNode buildTreeFromArray(Integer[] array) {
+    public static TreeNode buildTreeFromArrayOfLevelOrder(Integer[] array) {
         if (array == null || array.length == 0) {
             return null;
         }
@@ -83,5 +72,25 @@ public class Utils {
             head = head.next;
         }
         return vals.toArray(new Integer[0]);
+    }
+
+    public static ListNode buildListWithLoopFromArray(int[] vals, int pos) {
+        if (vals == null || vals.length == 0) {
+            return null;
+        }
+        ListNode head = new ListNode(vals[0]);
+        ListNode cur = head;
+        ListNode posNode = null;
+        if (pos == 0) {
+            posNode = head;
+        }
+        for(int i = 1; i < vals.length; i++){
+            cur.next = new ListNode(vals[i]);
+            cur = cur.next;
+            if(i == pos) posNode = cur;
+
+        }
+        cur.next = posNode;
+        return head;
     }
 }

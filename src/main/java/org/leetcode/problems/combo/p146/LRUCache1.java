@@ -10,12 +10,14 @@ public class LRUCache1 {
         this.capacity = capacity;
     }
 
-
+    private void makeRecently(int key) {
+        int val = cache.remove(key);
+        cache.put(key, val);
+    }
     public int get(int key) {
         if (cache.containsKey(key)) {
             int val = cache.get(key);
-            cache.remove(key);
-            cache.put(key, val);
+            makeRecently(key);
             return val;
         }
         return -1;

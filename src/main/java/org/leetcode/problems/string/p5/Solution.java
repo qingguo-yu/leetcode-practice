@@ -19,7 +19,6 @@ public class Solution {
     }
 
     private String getPalindrome(String s, int l, int r) {
-        List<Character> res = new ArrayList<>();
         while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
             l --;
             r ++;

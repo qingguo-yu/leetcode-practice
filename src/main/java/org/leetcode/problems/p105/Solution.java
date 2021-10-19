@@ -19,7 +19,7 @@ public class Solution {
     private TreeNode _buildTree(int[] preorder, int preStart,int preEnd,  int[] inorder, int inStart, int inEnd){
         if(preStart > preEnd) return null;
         int rootVal = preorder[preStart];
-        int index = 0;
+        int index = preStart;
         for(int i = inStart; i <= inEnd; i++ ){
             if(inorder[i] ==  rootVal){
                 index = i;

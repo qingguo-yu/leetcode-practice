@@ -1,21 +1,12 @@
 package org.leetcode.problems.p652;
 
+import org.leetcode.problems.utils.TreeNode;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class Solution {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    };
     HashMap<String, Integer> memo = new HashMap<>();
     List<TreeNode> result = new ArrayList<>();
     public List<TreeNode> findDuplicateSubtrees(TreeNode root) {

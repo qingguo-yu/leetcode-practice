@@ -28,4 +28,13 @@ class SolutionTest {
         Integer[] expect = new Integer[]{1, 2, 3, 5};
         Assertions.assertArrayEquals(expect, result);
     }
+    @Test
+    void removeNthFromEnd1() {
+        Integer[] vals = new Integer[]{1, 2};
+        ListNode head = Utils.buildListFromArray(vals);
+        head = new Solution().removeNthFromEnd(head, 2);
+        Integer[] result = Utils.buildArrayFromList(head);
+        Integer[] expect = new Integer[]{2};
+        Assertions.assertArrayEquals(expect, result);
+    }
 }

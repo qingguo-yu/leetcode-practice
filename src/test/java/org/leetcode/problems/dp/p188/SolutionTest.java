@@ -26,4 +26,19 @@ class SolutionTest {
         int result = new Solution().maxProfit(1, prices);
         Assertions.assertEquals(2, result);
     }
+
+    @Test
+    void maxProfit_3() {
+        int[] prices = new int[] {2,4};
+        int result = new Solution().maxProfit(2, prices);
+        Assertions.assertEquals(2, result);
+    }
+    @Test
+    void maxProfit_4() {
+        int[] prices = new int[] {7,8,5,6};
+        int result = new Solution().maxProfit(1, prices);
+        Assertions.assertEquals(1, result);
+        result = new Solution().maxProfit(2, prices);
+        Assertions.assertEquals(2, result);
+    }
 }

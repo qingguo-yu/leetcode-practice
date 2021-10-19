@@ -2,8 +2,7 @@ package org.leetcode.problems.p652;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.leetcode.problems.p652.Solution;
-import org.leetcode.problems.p652.Solution.TreeNode;
+import org.leetcode.problems.utils.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

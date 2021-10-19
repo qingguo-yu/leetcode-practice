@@ -16,6 +16,10 @@ public class Solution {
                 return null;
             }
         }
+        if(fast == null)
+        {
+            return head.next;
+        }
         fast = fast.next;
         while (fast != null) {
             fast = fast.next;

@@ -1,10 +1,7 @@
 package org.leetcode.problems.utils;
 
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Utils {
 
@@ -45,6 +42,32 @@ public class Utils {
             if (cur.right != null) {
                 q.offer(cur.right);
             }
+        }
+        return  list.toArray(new Integer[0]);
+    }
+
+    public static Integer[] BFSTraverse2ArrayWithNull(TreeNode root){
+        if(root == null){
+            return new Integer[0];
+        }
+        LinkedList<Integer> list = new LinkedList<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while(!q.isEmpty()){
+            TreeNode cur = q.poll();
+
+            if (cur != null) {
+                list.add(cur.val);
+                q.offer(cur.left);
+                q.offer(cur.right);
+            }
+            else {
+                list.add(null);
+            }
+
+        }
+        while(list.getLast() == null){
+            list.removeLast();
         }
         return  list.toArray(new Integer[0]);
     }
